@@ -1,6 +1,12 @@
 NAME = checker
 
-SRCS = srcs/main/main.c
+SRCS = srcs/ft/ctype.c		\
+	   srcs/ft/stdlib.c		\
+	   srcs/ft/string.c		\
+	   srcs/dput.c			\
+	   srcs/parsing/error.c	\
+	   srcs/parsing/args.c	\
+	   srcs/main.c
 
 OBJS = $(SRCS:.c=.o)
 
