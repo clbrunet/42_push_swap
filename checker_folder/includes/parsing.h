@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:41:42 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/07 14:11:04 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/08 07:44:52 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@
 # include "dput.h"
 # include "ft.h"
 
-void	option_error(char option);
-void	a_stack_error(void *a_stack);
+void		option_error(char option);
 
-void	parse_args(const char *const *args, t_vars *v);
+t_status	parse_args(const char *const *args, t_vars *v);
+t_status	set_operations(const char *input, t_op_type *types);
+t_status	parse_input(t_vars *v);
 
 #endif

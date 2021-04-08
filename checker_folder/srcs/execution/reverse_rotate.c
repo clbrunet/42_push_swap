@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 09:40:37 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 07:17:59 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/08 09:08:46 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/08 09:16:50 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "execution.h"
 
-void	option_error(char option)
+void	reverse_rotate(t_stack *stack)
 {
-	dputs(2, RED "checker: unknown option: '" BOLD);
-	dputc(2, option);
-	dputs(2, RESET RED "'\n" RESET);
-	exit(EXIT_FAILURE);
+	int				tmp;
+	unsigned int	i;
+
+	if (stack->len < 2)
+		return ;
+	tmp = stack->arr[0];
+	i = 0;
+	while (i < stack->len - 1)
+	{
+		stack->arr[i] = stack->arr[i + 1];
+		i++;
+	}
+	stack->arr[i] = tmp;
+}
+
+void	reverse_rotate_both(t_vars *v)
+{
+	reverse_rotate(&v->a);
+	reverse_rotate(&v->b);
 }

@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 09:40:37 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 07:17:59 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/08 08:45:28 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/08 09:06:17 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "execution.h"
 
-void	option_error(char option)
+void	rotate(t_stack *stack)
 {
-	dputs(2, RED "checker: unknown option: '" BOLD);
-	dputc(2, option);
-	dputs(2, RESET RED "'\n" RESET);
-	exit(EXIT_FAILURE);
+	int	tmp;
+	int	i;
+
+	if (stack->len < 2)
+		return ;
+	i = stack->len - 1;
+	tmp = stack->arr[i];
+	while (i)
+	{
+		stack->arr[i] = stack->arr[i - 1];
+		i--;
+	}
+	stack->arr[0] = tmp;
+}
+
+void	rotate_both(t_vars *v)
+{
+	rotate(&v->a);
+	rotate(&v->b);
 }

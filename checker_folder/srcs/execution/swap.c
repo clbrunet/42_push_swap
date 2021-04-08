@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 09:40:37 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 07:17:59 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/08 07:58:48 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/08 08:51:10 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "execution.h"
 
-void	option_error(char option)
+void	swap(t_stack *stack)
 {
-	dputs(2, RED "checker: unknown option: '" BOLD);
-	dputc(2, option);
-	dputs(2, RESET RED "'\n" RESET);
-	exit(EXIT_FAILURE);
+	int	tmp;
+
+	if (stack->len < 2)
+		return ;
+	tmp = stack->arr[stack->len - 1];
+	stack->arr[stack->len - 1] = stack->arr[stack->len - 2];
+	stack->arr[stack->len - 2] = tmp;
+}
+
+void	swap_both(t_vars *v)
+{
+	swap(&v->a);
+	swap(&v->b);
 }

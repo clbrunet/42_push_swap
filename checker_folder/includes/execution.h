@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   execution.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 09:40:37 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 07:17:59 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/08 07:34:28 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/08 09:17:35 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#ifndef EXECUTION_H
+# define EXECUTION_H
 
-void	option_error(char option)
-{
-	dputs(2, RED "checker: unknown option: '" BOLD);
-	dputc(2, option);
-	dputs(2, RESET RED "'\n" RESET);
-	exit(EXIT_FAILURE);
-}
+# include "vars.h"
+# include "dput.h"
+
+void	swap(t_stack *stack);
+void	swap_both(t_vars *v);
+void	push(t_stack *dest, t_stack *src);
+void	rotate(t_stack *stack);
+void	rotate_both(t_vars *v);
+void	reverse_rotate(t_stack *stack);
+void	reverse_rotate_both(t_vars *v);
+
+void	execute_operations(t_vars *v);
+
+#endif

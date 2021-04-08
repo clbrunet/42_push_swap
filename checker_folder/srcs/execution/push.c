@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 09:40:37 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 07:17:59 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/08 08:26:13 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/08 09:12:26 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "execution.h"
 
-void	option_error(char option)
+void	push(t_stack *dest, t_stack *src)
 {
-	dputs(2, RED "checker: unknown option: '" BOLD);
-	dputc(2, option);
-	dputs(2, RESET RED "'\n" RESET);
-	exit(EXIT_FAILURE);
+	if (src->len < 1)
+		return ;
+	src->len--;
+	dest->arr[dest->len] = src->arr[src->len];
+	dest->len++;
 }

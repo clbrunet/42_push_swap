@@ -4,10 +4,10 @@ PUSH_SWAP = push_swap_folder/push_swap
 all: checker push_swap
 
 $(CHECKER):
-	make -c checker_folder/
+	make -C checker_folder/
 
 $(PUSH_SWAP):
-	make -c push_swap_folder/
+	make -C push_swap_folder/
 
 checker: $(CHECKER)
 	cp checker_folder/checker .
@@ -18,19 +18,19 @@ push_swap: $(PUSH_SWAP)
 bonus: all
 
 clean_checker:
-	make -c checker_folder/ clean
+	make -C checker_folder/ clean
 
 clean_push_swap:
-	make -c push_swap_folder/ clean
+	make -C push_swap_folder/ clean
 
 clean: clean_checker clean_push_swap
 
 fclean_checker:
-	make -c checker_folder/ fclean
+	make -C checker_folder/ fclean
 	rm -f checker
 
 fclean_push_swap:
-	make -c push_swap_folder/ fclean
+	make -C push_swap_folder/ fclean
 	rm -f push_swap
 
 fclean: fclean_checker fclean_push_swap

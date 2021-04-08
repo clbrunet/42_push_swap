@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:27:58 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/07 13:50:21 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/08 12:07:58 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static const char *const	*parse_options(const char *const *args, t_vars *v)
 
 	v->options.verbose = False;
 	v->options.color = False;
-	while (*args && **args == '-')
+	while (*args && **args == '-' && !ft_isdigit(*(*args + 1)))
 	{
 		options = *args + 1;
 		while (*options)
@@ -36,7 +36,7 @@ static const char *const	*parse_options(const char *const *args, t_vars *v)
 	return (args);
 }
 
-static t_status	parse_integer(const char *arg, int *a_stack)
+static t_status	parse_integer(const char *arg, int *a_arr)
 {
 	long int	longv;
 	char		sign;
@@ -61,37 +61,72 @@ static t_status	parse_integer(const char *arg, int *a_stack)
 	longv *= sign;
 	if (*arg || longv < INT_MIN || INT_MAX < longv)
 		return (Failure);
-	*a_stack = longv;
+	*a_arr = longv;
 	return (Success);
 }
 
-static void	parse_a_stack(const char *const *args, t_vars *v)
+static t_status	check_duplicates(t_stack *a)
 {
-	const char *const	*backup;
-	int					*iter;
+	int	*backup;
+	int	*iter;
+	int	current;
 
-	backup = args;
-	while (*args)
-		args++;
-	v->a.len = args - backup;
-	v->a.stack = malloc(sizeof(int) * (v->a.len));
-	if (v->a.stack == NULL)
-		exit(EXIT_FAILURE);
-	args = backup;
-	iter = v->a.stack;
-	while (*args)
+	iter = a->arr;
+	while (iter < a->arr + a->len)
 	{
-		if (parse_integer(*args, iter) == Failure)
-			a_stack_error(v->a.stack);
-		iter++;
-		args++;
+		current = *iter;
+		backup = ++iter;
+		while (iter < a->arr + a->len)
+		{
+			if (*iter == current)
+				return (Failure);
+			iter++;
+		}
+		iter = backup;
 	}
+	return (Success);
 }
 
-void	parse_args(const char *const *args, t_vars *v)
+static t_status	set_a_arr(const char *const *args, t_stack *a)
+{
+	int	*a_arr;
+
+	a_arr = a->arr + a->len - 1;
+	while (*args)
+	{
+		if (parse_integer(*args, a_arr) == Failure)
+			return (Failure);
+		a_arr--;
+		args++;
+	}
+	if (check_duplicates(a) == Failure)
+		return (Failure);
+	return (Success);
+}
+
+t_status	parse_args(const char *const *args, t_vars *v)
 {
 	args = parse_options(args, v);
-	if (*args == NULL)
-		exit(EXIT_SUCCESS);
-	parse_a_stack(args, v);
+	v->a.len = 0;
+	while (args[v->a.len])
+		v->a.len++;
+	if (v->a.len == 0)
+		return (Success);
+	v->a.arr = malloc(sizeof(int) * (v->a.len));
+	if (v->a.arr == NULL)
+		return (Failure);
+	if (set_a_arr(args, &v->a) == Failure)
+	{
+		dputs(2, "Error\n");
+		free(v->a.arr);
+		return (Failure);
+	}
+	v->b.len = 0;
+	v->b.arr = malloc(sizeof(int) * (v->a.len));
+	if (v->b.arr == NULL)
+	{
+		free(v->a.arr);
+		return (Failure);
+	}
+	return (Success);
 }
