@@ -1,6 +1,5 @@
 **/*.o
-**/tags
-**/compile_flags.txt
-
-**/checker
-**/push_swap
+./tags
+./compile_flags.txt
+./checker
+./push_swap
