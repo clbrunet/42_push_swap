@@ -6,11 +6,11 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 08:47:08 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 11:10:14 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:56:03 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dput.h"
+#include "shared/dput.h"
 
 int	dputc(int fd, int c)
 {

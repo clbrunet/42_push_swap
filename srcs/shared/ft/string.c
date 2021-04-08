@@ -6,11 +6,11 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 08:58:19 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/07 21:31:40 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/08 18:55:52 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "shared/ft.h"
 
 size_t	ft_strlen(const char *s)
 {

@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution.h                                        :+:      :+:    :+:   */
+/*   ctype.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 07:34:28 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 09:17:35 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/07 09:47:45 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/08 18:55:11 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXECUTION_H
-# define EXECUTION_H
+int	ft_isdigit(int c)
+{
+	return ('0' <= c && c <= '9');
+}
 
-# include "vars.h"
-# include "dput.h"
-
-void	swap(t_stack *stack);
-void	swap_both(t_vars *v);
-void	push(t_stack *dest, t_stack *src);
-void	rotate(t_stack *stack);
-void	rotate_both(t_vars *v);
-void	reverse_rotate(t_stack *stack);
-void	reverse_rotate_both(t_vars *v);
-
-void	execute_operations(t_vars *v);
-
-#endif
+int	ft_isspace(int c)
+{
+	return (c == ' ' || c == '\f' || c == '\t'
+		|| c == '\n' || c == '\r' || c == '\v');
+}

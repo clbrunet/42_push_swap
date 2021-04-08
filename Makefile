@@ -1,44 +1,50 @@
-CHECKER = checker_folder/checker
-PUSH_SWAP = push_swap_folder/push_swap
+NAME_CHECKER = checker
+NAME_PUSH_SWAP = push_swap
 
-all: checker push_swap
+SRCS_CHECKER = srcs/shared/ft/ctype.c					\
+			   srcs/shared/ft/stdlib.c					\
+			   srcs/shared/ft/string.c					\
+			   srcs/shared/dput.c						\
+			   srcs/shared/parsing/error.c				\
+			   srcs/shared/parsing/args.c				\
+			   srcs/shared/execution/swap.c				\
+			   srcs/shared/execution/push.c				\
+			   srcs/shared/execution/rotate.c			\
+			   srcs/shared/execution/reverse_rotate.c	\
+			   srcs/checker/parsing/input2.c			\
+			   srcs/checker/parsing/input.c				\
+			   srcs/checker/execution/operations.c		\
+			   srcs/checker/main.c
+OBJS_CHECKER = $(SRCS_CHECKER:.c=.o)
+$(OBJS_CHECKER): EXTRA_CFLAGS_I := -I./includes/checker/
 
-$(CHECKER):
-	make -C checker_folder/
+SRCS_PUSH_SWAP = srcs/push_swap/main.c
+OBJS_PUSH_SWAP = $(SRCS_PUSH_SWAP:.c=.o)
+$(OBJS_PUSH_SWAP): EXTRA_CFLAGS_I := -I./includes/push_swap/
 
-$(PUSH_SWAP):
-	make -C push_swap_folder/
+CC = clang
+CFLAGS = -Wall -Wextra -Werror -I./includes/ -g3 -fsanitize=address
 
-checker: $(CHECKER)
-	cp checker_folder/checker .
+.c.o:
+	$(CC) $(CFLAGS) $(EXTRA_CFLAGS_I) -o $@ -c $<
 
-push_swap: $(PUSH_SWAP)
-	cp push_swap_folder/push_swap .
+all: $(NAME_CHECKER) $(NAME_PUSH_SWAP)
+
+$(NAME_CHECKER): $(OBJS_CHECKER)
+	$(CC) $(CFLAGS) -I./includes/checker/ -o $(NAME_CHECKER) $(OBJS_CHECKER)
+
+
+$(NAME_PUSH_SWAP): $(OBJS_PUSH_SWAP)
+	$(CC) $(CFLAGS) -I./includes/push_swap/ -o $(NAME_PUSH_SWAP) $(OBJS_PUSH_SWAP)
 
 bonus: all
 
-clean_checker:
-	make -C checker_folder/ clean
+clean:
+	rm -f $(OBJS_CHECKER) $(OBJS_PUSH_SWAP)
 
-clean_push_swap:
-	make -C push_swap_folder/ clean
+fclean: clean
+	rm -f $(NAME_CHECKER) $(NAME_PUSH_SWAP)
 
-clean: clean_checker clean_push_swap
+re: fclean all
 
-fclean_checker:
-	make -C checker_folder/ fclean
-	rm -f checker
-
-fclean_push_swap:
-	make -C push_swap_folder/ fclean
-	rm -f push_swap
-
-fclean: fclean_checker fclean_push_swap
-
-re_checker: fclean_checker checker
-
-re_push_swap: fclean_push_swap push_swap
-
-re: re_checker re_push_swap
-
-.PHONY: all bonus clean_checker clean_push_swap clean fclean_checker fclean_push_swap fclean re_checker re_push_swap re
+.PHONY: all bonus clean fclean re

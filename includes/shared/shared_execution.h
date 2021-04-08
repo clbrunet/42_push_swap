@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   shared_execution.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 18:41:42 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 07:44:52 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/08 07:34:28 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/08 20:55:03 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#ifndef SHARED_EXECUTION_H
+# define SHARED_EXECUTION_H
 
-# include <stdlib.h>
-# include <limits.h>
+#include "vars.h"
 
-# include "debug.h"
-# include "vars.h"
-# include "display.h"
-# include "dput.h"
-# include "ft.h"
-
-void		option_error(char option);
-
-t_status	parse_args(const char *const *args, t_vars *v);
-t_status	set_operations(const char *input, t_op_type *types);
-t_status	parse_input(t_vars *v);
+void	swap(t_stack *stack);
+void	swap_both(t_vars *v);
+void	push(t_stack *dest, t_stack *src);
+void	rotate(t_stack *stack);
+void	rotate_both(t_vars *v);
+void	reverse_rotate(t_stack *stack);
+void	reverse_rotate_both(t_vars *v);
 
 #endif

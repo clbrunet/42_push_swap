@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ctype.c                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 09:47:45 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 07:16:13 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/07 09:40:37 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/08 18:56:21 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "shared/shared_parsing.h"
 
-int	ft_isdigit(int c)
+void	option_error(char option)
 {
-	return ('0' <= c && c <= '9');
-}
-
-int	ft_isspace(int c)
-{
-	return (c == ' ' || c == '\f' || c == '\t'
-		|| c == '\n' || c == '\r' || c == '\v');
+	dputs(2, RED "checker: unknown option: '" BOLD);
+	dputc(2, option);
+	dputs(2, RESET RED "'\n" RESET);
+	exit(EXIT_FAILURE);
 }
