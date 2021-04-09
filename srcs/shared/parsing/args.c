@@ -6,11 +6,11 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:27:58 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 20:57:22 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/09 09:12:34 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shared/shared_parsing.h"
+#include "shared_parsing.h"
 
 static const char *const	*parse_options(const char *const *args, t_vars *v)
 {

@@ -6,11 +6,11 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 09:40:37 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 18:56:21 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/09 06:32:57 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shared/shared_parsing.h"
+#include "shared_parsing.h"
 
 void	option_error(char option)
 {

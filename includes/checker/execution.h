@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 07:34:28 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 20:59:41 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/09 06:53:01 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define EXECUTION_H
 
 # include "vars.h"
-# include "shared/shared_execution.h"
-# include "shared/dput.h"
+# include "shared_execution.h"
+# include "shared_dput.h"
 
 void	execute_operations(t_vars *v);
 

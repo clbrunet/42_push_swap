@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shared/ft.h"
+#include "shared_ft.h"
 
 size_t	ft_strlen(const char *s)
 {

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   shared_execution.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/09 06:02:23 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/09 06:41:42 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/08 07:34:28 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/09 09:11:21 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#ifndef SHARED_EXECUTION_H
+# define SHARED_EXECUTION_H
 
-int	main(int argc, char *argv[])
-{
-	t_vars	v;
+#include "shared_vars.h"
 
-	(void)argc;
-	if (parse_args((const char *const *)argv + 1, &v) == Failure)
-		return (1);
-	else if (v.a.len == 0)
-		return (0);
-	sort_stacks(&v);
-	free(v.b.arr);
-	free(v.a.arr);
-	return (0);
-}
+void	swap(t_stack *stack);
+void	swap_both(t_vars *v);
+void	push(t_stack *dest, t_stack *src);
+void	rotate(t_stack *stack);
+void	rotate_both(t_vars *v);
+void	reverse_rotate(t_stack *stack);
+void	reverse_rotate_both(t_vars *v);
+
+#endif

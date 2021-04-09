@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dput.h                                             :+:      :+:    :+:   */
+/*   shared_parsing.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/08 07:16:03 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 11:10:31 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/06 18:41:42 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/09 09:11:41 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DPUT_H
-# define DPUT_H
+#ifndef SHARED_PARSING_H
+# define SHARED_PARSING_H
 
-# include <unistd.h>
-# include <stdio.h>
+# include <stdlib.h>
 # include <limits.h>
 
-# include "ft.h"
+# include "shared_debug.h"
+# include "shared_vars.h"
+# include "shared_display.h"
+# include "shared_dput.h"
+# include "shared_ft.h"
 
-int	dputc(int fd, int c);
-int	dputs(int fd, const char *s);
-int	dputn(int fd, int n);
+void		option_error(char option);
+
+t_status	parse_args(const char *const *args, t_vars *v);
 
 #endif
