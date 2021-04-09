@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 06:20:17 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/09 09:09:21 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/09 14:23:18 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,5 @@ typedef struct s_vars
 	t_operations	ops;
 	t_options		options;
 }	t_vars;
-
 
 #endif

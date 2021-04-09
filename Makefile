@@ -5,7 +5,7 @@ SRCS_SHARED = srcs/shared/ft/ctype.c					\
 			  srcs/shared/ft/stdlib.c					\
 			  srcs/shared/ft/string.c					\
 			  srcs/shared/dput.c						\
-			  srcs/shared/parsing/error.c				\
+			  srcs/shared/parsing/options.c				\
 			  srcs/shared/parsing/args.c				\
 			  srcs/shared/execution/swap.c				\
 			  srcs/shared/execution/push.c				\

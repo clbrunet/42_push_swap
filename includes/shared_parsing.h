@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:41:42 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/09 09:11:41 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/09 14:26:42 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include "shared_dput.h"
 # include "shared_ft.h"
 
-void		option_error(char option);
+const char *const	*parse_options(const char *const *args, t_vars *v);
 
-t_status	parse_args(const char *const *args, t_vars *v);
+t_status			parse_args(const char *const *args, t_vars *v);
 
 #endif

@@ -6,60 +6,59 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:27:58 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/09 09:12:34 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/09 14:22:23 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared_parsing.h"
 
-static const char *const	*parse_options(const char *const *args, t_vars *v)
+static unsigned int	get_stack_len(const char *const *args)
 {
-	const char	*options;
+	unsigned int	count;
+	const char		*arg;
 
-	v->options.verbose = False;
-	v->options.color = False;
-	while (*args && **args == '-' && !ft_isdigit(*(*args + 1)))
+	count = 0;
+	while (*args)
 	{
-		options = *args + 1;
-		while (*options)
+		arg = *args;
+		while (ft_isspace(*arg))
+			arg++;
+		while (*arg)
 		{
-			if (*options == 'v')
-				v->options.verbose = True;
-			else if (*options == 'c')
-				v->options.color = True;
-			else
-				option_error(*options);
-			options++;
+			while (ft_isdigit(*arg))
+				arg++;
+			count++;
+			while (ft_isspace(*arg))
+				arg++;
 		}
 		args++;
 	}
-	return (args);
+	return (count);
 }
 
-static t_status	parse_integer(const char *arg, int *a_arr)
+static t_status	parse_integer(const char **arg, int *a_arr)
 {
 	long int	longv;
 	char		sign;
 
-	if (*arg == '-')
+	sign = 1;
+	if (**arg == '-')
 	{
 		sign = -1;
-		arg++;
+		(*arg)++;
 	}
-	else
-	{
-		sign = 1;
-		if (*arg == '+')
-			arg++;
-	}
+	else if (**arg == '+')
+		(*arg)++;
 	longv = 0;
-	while (ft_isdigit(*arg))
+	while (ft_isdigit(**arg))
 	{
-		longv = longv * 10 + *arg - '0';
-		arg++;
+		longv = longv * 10 + **arg - '0';
+		(*arg)++;
 	}
+	while (ft_isspace(**arg))
+		(*arg)++;
 	longv *= sign;
-	if (*arg || longv < INT_MIN || INT_MAX < longv)
+	if ((**arg && !ft_isdigit(**arg)) || longv < INT_MIN || INT_MAX < longv)
 		return (Failure);
 	*a_arr = longv;
 	return (Success);
@@ -89,14 +88,23 @@ static t_status	check_duplicates(t_stack *a)
 
 static t_status	set_a_arr(const char *const *args, t_stack *a)
 {
-	int	*a_arr;
+	int			*a_arr;
+	const char	*arg;
 
 	a_arr = a->arr + a->len - 1;
 	while (*args)
 	{
-		if (parse_integer(*args, a_arr) == Failure)
+		arg = *args;
+		while (ft_isspace(*arg))
+			arg++;
+		if (!*arg)
 			return (Failure);
-		a_arr--;
+		while (*arg)
+		{
+			if (parse_integer(&arg, a_arr) == Failure)
+				return (Failure);
+			a_arr--;
+		}
 		args++;
 	}
 	if (check_duplicates(a) == Failure)
@@ -107,9 +115,7 @@ static t_status	set_a_arr(const char *const *args, t_stack *a)
 t_status	parse_args(const char *const *args, t_vars *v)
 {
 	args = parse_options(args, v);
-	v->a.len = 0;
-	while (args[v->a.len])
-		v->a.len++;
+	v->a.len = get_stack_len(args);
 	if (v->a.len == 0)
 		return (Success);
 	v->a.arr = malloc(sizeof(int) * (v->a.len));

@@ -6,13 +6,14 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 06:38:41 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/09 09:18:54 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/09 14:23:02 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "execution.h"
 
-static void	search_smallest(t_stack *a, int *smallest, unsigned int *smallest_index)
+static void	search_smallest(t_stack *a, int *smallest,
+		unsigned int *smallest_index)
 {
 	unsigned int	i;
 
