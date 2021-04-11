@@ -6,33 +6,11 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:52:34 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/09 08:32:40 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/10 10:18:37 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
-
-t_bool	is_a_stack_sorted(t_stack *a)
-{
-	unsigned int	i;
-
-	i = 1;
-	while (i < a->len)
-	{
-		if (a->arr[i - 1] < a->arr[i])
-			return (False);
-		i++;
-	}
-	return (True);
-}
-
-void	checker(t_vars *v)
-{
-	if (v->b.len == 0 && is_a_stack_sorted(&v->a) == True)
-		dputs(1, "OK\n");
-	else
-		dputs(1, "KO\n");
-}
 
 int	main(int argc, char *argv[])
 {
@@ -52,7 +30,10 @@ int	main(int argc, char *argv[])
 	execute_operations(&v);
 	free(v.ops.arr);
 	free(v.b.arr);
-	checker(&v);
+	if (check_stacks(&v) == Success)
+		dputs(1, "OK\n");
+	else
+		dputs(1, "KO\n");
 	free(v.a.arr);
 	return (0);
 }

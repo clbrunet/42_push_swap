@@ -10,7 +10,9 @@ SRCS_SHARED = srcs/shared/ft/ctype.c					\
 			  srcs/shared/execution/swap.c				\
 			  srcs/shared/execution/push.c				\
 			  srcs/shared/execution/rotate.c			\
-			  srcs/shared/execution/reverse_rotate.c
+			  srcs/shared/execution/reverse_rotate.c	\
+			  srcs/shared/execution/operations.c		\
+			  srcs/shared/execution/check_stacks.c
 OBJS_SHARED = $(SRCS_SHARED:.c=.o)
 $(OBJS_SHARED): EXTRA_CFLAGS_I :=
 
@@ -21,7 +23,10 @@ SRCS_CHECKER = srcs/checker/parsing/input2.c		\
 OBJS_CHECKER = $(SRCS_CHECKER:.c=.o)
 $(OBJS_CHECKER): EXTRA_CFLAGS_I := -I./includes/checker/
 
-SRCS_PUSH_SWAP = srcs/push_swap/execution/sort_stacks.c	\
+SRCS_PUSH_SWAP = srcs/push_swap/execution/rotate_sort.c			\
+				 srcs/push_swap/execution/perfect_sort_utils.c	\
+				 srcs/push_swap/execution/perfect_sort.c		\
+				 srcs/push_swap/execution/sort_stacks.c			\
 				 srcs/push_swap/main.c
 OBJS_PUSH_SWAP = $(SRCS_PUSH_SWAP:.c=.o)
 $(OBJS_PUSH_SWAP): EXTRA_CFLAGS_I := -I./includes/push_swap/
