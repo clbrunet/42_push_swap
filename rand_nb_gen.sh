@@ -2,15 +2,28 @@
 
 if [ $# -eq 0 ]; then
 	n=10
-elif [ $# -gt 1 ]; then
-	exit
-else
+	mod=0
+elif [ $# -eq 1 ]; then
 	n=$1
+	mod=0
+elif [ $# -eq 2 ]; then
+	n=$1
+	mod=$2
+	if [ $mod -lt $n ]; then
+		echo "Second parameter ($2) cannot be less than the first ($1)."
+		exit
+	fi
+else
+	exit
 fi
 
 i=0
 while [ $i -lt $n ]; do
-	new=$RANDOM
+	if [ $mod -eq 0 ]; then
+		new=$RANDOM
+	else
+		new=$(($RANDOM % $mod))
+	fi
 	for random in ${randoms[@]}; do
 		if [ $new -eq $random ]; then
 			continue 2
