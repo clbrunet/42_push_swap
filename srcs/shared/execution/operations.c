@@ -6,36 +6,11 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 11:24:15 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/11 07:25:47 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 07:39:46 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shared_execution.h"
-
-void	print_state(const t_vars *v)
-{
-	unsigned int	index;
-
-	dputc(1, '\n');
-	if (v->a.len > v->b.len)
-		index = v->a.len - 1;
-	else
-		index = v->b.len - 1;
-	while ((int)index >= 0)
-	{
-		if (index < v->a.len)
-			printf("%-11d\t", v->a.arr[index]);
-		else
-			printf("\t\t");
-		if (index < v->b.len)
-			printf("%d", v->b.arr[index]);
-		printf("\n");
-		index--;
-	}
-	dputs(1, "-\t\t-\n");
-	dputs(1, "a\t\tb\n");
-	dputs(1, "---------------------------\n");
-}
 
 void	undo_operation(t_vars *v, t_op_type type)
 {

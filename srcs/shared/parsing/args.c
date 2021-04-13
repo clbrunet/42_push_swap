@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:27:58 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/09 17:56:31 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 07:39:10 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ static t_status	set_a_arr(const char *const *args, t_stack *a)
 
 t_status	parse_args(const char *const *args, t_vars *v)
 {
-	args = parse_options(args, v);
 	v->a.len = get_stack_len(args);
 	if (v->a.len == 0)
 		return (Success);

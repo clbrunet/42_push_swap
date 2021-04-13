@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 06:20:17 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/09 14:23:18 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 07:38:20 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,11 @@ typedef struct s_operations
 	t_op_type		*arr;
 }	t_operations;
 
-typedef struct s_options
-{
-	t_bool	verbose;
-	t_bool	color;
-}	t_options;
-
 typedef struct s_vars
 {
 	t_stack			a;
 	t_stack			b;
 	t_operations	ops;
-	t_options		options;
 }	t_vars;
 
 #endif

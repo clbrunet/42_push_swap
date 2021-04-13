@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 07:34:28 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/11 07:27:36 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 07:39:56 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void		rotate_both(t_vars *v);
 void		reverse_rotate(t_stack *stack);
 void		reverse_rotate_both(t_vars *v);
 
-void		print_state(const t_vars *v);
 void		put_operation(t_op_type type);
 void		put_operations(t_operations *ops);
 void		undo_operation(t_vars *v, t_op_type type);
