@@ -34,7 +34,7 @@ OBJS_PUSH_SWAP = $(SRCS_PUSH_SWAP:.c=.o)
 $(OBJS_PUSH_SWAP): EXTRA_CFLAGS_I := -I./includes/push_swap/
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address -I./includes/
+CFLAGS = -Wall -Wextra -Werror -I./includes/
 
 .c.o:
 	$(CC) $(CFLAGS) $(EXTRA_CFLAGS_I) -o $@ -c $<
