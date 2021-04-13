@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 07:26:45 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 11:58:26 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:09:09 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static t_status	set_operation(const char *input, t_op_type *type)
 	return (Success);
 }
 
-t_status	set_operations(const char *input, t_op_type *types)
+t_status		set_operations(const char *input, t_op_type *types)
 {
 	while (*input)
 	{

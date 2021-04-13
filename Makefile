@@ -2,7 +2,6 @@ NAME_CHECKER = checker
 NAME_PUSH_SWAP = push_swap
 
 SRCS_SHARED = srcs/shared/ft/ctype.c					\
-			  srcs/shared/ft/stdlib.c					\
 			  srcs/shared/ft/string.c					\
 			  srcs/shared/dput.c						\
 			  srcs/shared/parsing/args.c				\

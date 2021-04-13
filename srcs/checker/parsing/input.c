@@ -6,13 +6,13 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:24:23 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 13:47:16 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:08:59 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-static char	*join_read_input(char *input, const char buf[5])
+static char		*join_read_input(char *input, const char buf[5])
 {
 	char	*joint;
 	size_t	len;
@@ -56,7 +56,7 @@ static t_status	read_input(char **input)
 	return (Success);
 }
 
-static int	get_line_count(const char *input)
+static int		get_line_count(const char *input)
 {
 	int			line_count;
 
@@ -72,7 +72,7 @@ static int	get_line_count(const char *input)
 	return (line_count);
 }
 
-t_status	parse_input(t_vars *v)
+t_status		parse_input(t_vars *v)
 {
 	char	*input;
 

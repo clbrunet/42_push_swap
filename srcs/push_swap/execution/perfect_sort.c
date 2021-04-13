@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:09:29 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/12 13:32:25 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:09:40 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static t_bool	is_op_type_valid(const t_vars *v, t_op_type *ops,
 	return (True);
 }
 
-static void	backtrack(t_vars *v, t_op_type *ops, unsigned int index)
+static void		backtrack(t_vars *v, t_op_type *ops, unsigned int index)
 {
 	t_op_type	i;
 

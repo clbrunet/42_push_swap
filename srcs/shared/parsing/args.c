@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:27:58 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/13 07:58:56 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:12:11 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static unsigned int	get_stack_len(const char *const *args)
 	return (count);
 }
 
-static t_status	parse_integer(const char **arg, int *a_arr)
+static t_status		parse_integer(const char **arg, int *a_arr)
 {
 	long int	longv;
 	char		sign;
@@ -68,7 +68,7 @@ static t_status	parse_integer(const char **arg, int *a_arr)
 	return (Success);
 }
 
-static t_status	check_duplicates(t_stack *a)
+static t_status		check_duplicates(t_stack *a)
 {
 	int	*backup;
 	int	*iter;
@@ -90,7 +90,7 @@ static t_status	check_duplicates(t_stack *a)
 	return (Success);
 }
 
-static t_status	set_a_arr(const char *const *args, t_stack *a)
+static t_status		set_a_arr(const char *const *args, t_stack *a)
 {
 	int			*a_arr;
 	const char	*arg;
@@ -118,7 +118,7 @@ static t_status	set_a_arr(const char *const *args, t_stack *a)
 	return (Success);
 }
 
-t_status	parse_args(const char *const *args, t_vars *v)
+t_status			parse_args(const char *const *args, t_vars *v)
 {
 	v->a.len = get_stack_len(args);
 	if (v->a.len == 0)

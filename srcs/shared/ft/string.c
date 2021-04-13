@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 08:58:19 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/08 18:55:52 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:12:30 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_strcat(char *dest, const char *src)
 	return (dest);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	const unsigned char	*u_s1;
 	const unsigned char	*u_s2;

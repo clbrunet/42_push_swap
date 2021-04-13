@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 19:03:12 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/12 19:04:06 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:11:13 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static unsigned int	get_min(unsigned int n1, unsigned int n2)
 	return (n2);
 }
 
-void	set_closest_data(t_extremity_data *closest_data,
+void				set_closest_data(t_extremity_data *closest_data,
 		unsigned int dst_len, t_stack_indexes *indexes, t_bool is_swap_needed)
 {
 	unsigned int	lowest_len;
@@ -49,7 +49,7 @@ void	set_closest_data(t_extremity_data *closest_data,
 	}
 }
 
-void	set_closest_should_reverse(t_extremity_data *closest_data,
+void				set_closest_should_reverse(t_extremity_data *closest_data,
 		unsigned int dst_len, t_stack_indexes *indexes)
 {
 	if ((closest_data->type == Lowest
@@ -66,7 +66,7 @@ void	set_closest_should_reverse(t_extremity_data *closest_data,
 		closest_data->should_reverse = False;
 }
 
-void	go_up_closest(t_stack *dst, char dst_name,
+void				go_up_closest(t_stack *dst, char dst_name,
 		t_extremity_data *closest_data, t_bool should_put)
 {
 	while (closest_data->rotate_nb)
@@ -89,7 +89,7 @@ void	go_up_closest(t_stack *dst, char dst_name,
 	}
 }
 
-void	push_to_dst(t_stack *dst, char dst_name, t_stack *buf,
+void				push_to_dst(t_stack *dst, char dst_name, t_stack *buf,
 		t_bool should_put)
 {
 	while (buf->len)

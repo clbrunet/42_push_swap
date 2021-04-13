@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 10:15:32 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/10 10:21:29 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:11:30 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static t_bool	is_a_stack_sorted(const t_stack *a)
 	return (True);
 }
 
-t_status	check_stacks(const t_vars *v)
+t_status		check_stacks(const t_vars *v)
 {
 	if (v->b.len == 0 && is_a_stack_sorted(&v->a) == True)
 		return (Success);

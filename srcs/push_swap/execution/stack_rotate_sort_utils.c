@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 19:01:19 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/12 19:06:26 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:12:20 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	search_indexes_greatest_test(t_stack_indexes *indexes, int current,
 	}
 }
 
-void	search_indexes(t_stack_indexes *indexes, t_stack *dst)
+void		search_indexes(t_stack_indexes *indexes, t_stack *dst)
 {
 	unsigned int	i;
 	int				lowest;

@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 07:47:43 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/13 06:32:31 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:09:24 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static unsigned int	merge_stacks(t_vars *v, t_bool should_put)
 	return (count);
 }
 
-unsigned int	merge_sort(t_vars *v, t_bool should_put)
+unsigned int		merge_sort(t_vars *v, t_bool should_put)
 {
 	unsigned int	count;
 	unsigned int	len_backup;

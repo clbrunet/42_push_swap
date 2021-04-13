@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_rotate_sort.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/13 10:10:23 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/13 10:10:41 by clbrunet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execution.h"
 
-static void	stack_rotate_sort_vars_hydration(char dst_name,
+static void		stack_rotate_sort_vars_hydration(char dst_name,
 		t_stack *buf, t_bool should_put, t_stack_rotate_sort_vars *v)
 {
 	v->dst_name = dst_name;
@@ -15,7 +27,7 @@ static void	stack_rotate_sort_vars_hydration(char dst_name,
 	v->buf_rotate_nb = 0;
 }
 
-static void	adapt_buf_push(t_stack_rotate_sort_vars *v)
+static void		adapt_buf_push(t_stack_rotate_sort_vars *v)
 {
 	if (v->closest_data.type == Lowest && v->is_swap_needed == True)
 	{
@@ -44,7 +56,7 @@ static void	adapt_buf_push(t_stack_rotate_sort_vars *v)
 	}
 }
 
-static void	rotate_buf(t_stack_rotate_sort_vars *v)
+static void		rotate_buf(t_stack_rotate_sort_vars *v)
 {
 	v->count += v->buf_rotate_nb * 2;
 	while (v->buf_rotate_nb)
