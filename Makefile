@@ -23,11 +23,13 @@ SRCS_CHECKER = srcs/checker/parsing/input2.c		\
 OBJS_CHECKER = $(SRCS_CHECKER:.c=.o)
 $(OBJS_CHECKER): EXTRA_CFLAGS_I := -I./includes/checker/
 
-SRCS_PUSH_SWAP = srcs/push_swap/execution/rotate_sort.c			\
-				 srcs/push_swap/execution/merge_sort.c			\
-				 srcs/push_swap/execution/perfect_sort_utils.c	\
-				 srcs/push_swap/execution/perfect_sort.c		\
-				 srcs/push_swap/execution/sort_stacks.c			\
+SRCS_PUSH_SWAP = srcs/push_swap/execution/stack_rotate_sort_utils.c	\
+				 srcs/push_swap/execution/stack_rotate_sort_utils2.c\
+				 srcs/push_swap/execution/stack_rotate_sort.c		\
+				 srcs/push_swap/execution/merge_sort.c				\
+				 srcs/push_swap/execution/perfect_sort_utils.c		\
+				 srcs/push_swap/execution/perfect_sort.c			\
+				 srcs/push_swap/execution/sort_stacks.c				\
 				 srcs/push_swap/main.c
 OBJS_PUSH_SWAP = $(SRCS_PUSH_SWAP:.c=.o)
 $(OBJS_PUSH_SWAP): EXTRA_CFLAGS_I := -I./includes/push_swap/

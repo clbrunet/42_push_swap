@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:09:29 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/11 07:19:42 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/12 13:32:25 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static t_status	prepare_backtrack(t_vars *v, unsigned int *rotate_sort_count,
 	a_arr_dup = int_arrdup(v->a.len, v->a.arr);
 	if (a_arr_dup == NULL)
 		return (Failure);
-	*rotate_sort_count = rotate_sort(v, False);
+	*rotate_sort_count = stack_rotate_sort(&v->a, 'a', &v->b, False);
 	int_arrcpy(v->a.arr, v->a.len, a_arr_dup);
 	free(a_arr_dup);
 	v->ops.arr = malloc(sizeof(t_op_type) * (*rotate_sort_count));
@@ -106,7 +106,7 @@ unsigned int	perfect_sort(t_vars *v)
 	if (v->ops.len < rotate_sort_count)
 		put_operations(&v->ops);
 	else
-		rotate_sort(v, True);
+		v->ops.len = stack_rotate_sort(&v->a, 'a', &v->b, True);
 	free(v->ops.arr);
 	return (v->ops.len);
 }
