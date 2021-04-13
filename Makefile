@@ -47,8 +47,6 @@ $(NAME_CHECKER): $(OBJS_SHARED) $(OBJS_CHECKER)
 $(NAME_PUSH_SWAP): $(OBJS_SHARED) $(OBJS_PUSH_SWAP)
 	$(CC) $(CFLAGS) -I./includes/push_swap/ -o $(NAME_PUSH_SWAP) $(OBJS_SHARED) $(OBJS_PUSH_SWAP)
 
-bonus: all
-
 clean:
 	rm -f $(OBJS_SHARED) $(OBJS_CHECKER) $(OBJS_PUSH_SWAP)
 
@@ -57,4 +55,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
