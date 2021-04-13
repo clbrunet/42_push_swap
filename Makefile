@@ -51,7 +51,7 @@ clean:
 	rm -f $(OBJS_SHARED) $(OBJS_CHECKER) $(OBJS_PUSH_SWAP)
 
 fclean: clean
-	rm -f $(OBJS_SHARED) $(NAME_CHECKER) $(NAME_PUSH_SWAP)
+	rm -f $(NAME_CHECKER) $(NAME_PUSH_SWAP)
 
 re: fclean all
 
