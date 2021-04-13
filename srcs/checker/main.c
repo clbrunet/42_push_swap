@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:52:34 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/10 10:18:37 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 07:55:11 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	main(int argc, char *argv[])
 {
 	t_vars	v;
 
-	(void)argc;
+	if (argc == 1)
+		return (0);
 	if (parse_args((const char *const *)argv + 1, &v) == Failure)
 		return (1);
 	else if (v.a.len == 0)

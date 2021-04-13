@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:27:58 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/13 07:39:10 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/13 07:58:56 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@ static unsigned int	get_stack_len(const char *const *args)
 		arg = *args;
 		while (ft_isspace(*arg))
 			arg++;
+		if (*arg == '-' || *arg == '+')
+			arg++;
 		while (ft_isdigit(*arg))
 		{
+			if (*arg == '-' || *arg == '+')
+				arg++;
 			while (ft_isdigit(*arg))
 				arg++;
 			count++;
@@ -99,7 +103,7 @@ static t_status	set_a_arr(const char *const *args, t_stack *a)
 			arg++;
 		if (!*arg)
 			return (Failure);
-		while (ft_isdigit(*arg))
+		while (*arg == '-' || *arg == '+' || ft_isdigit(*arg))
 		{
 			if (parse_integer(&arg, a_arr) == Failure)
 				return (Failure);
@@ -118,7 +122,10 @@ t_status	parse_args(const char *const *args, t_vars *v)
 {
 	v->a.len = get_stack_len(args);
 	if (v->a.len == 0)
-		return (Success);
+	{
+		dputs(2, "Error\n");
+		return (Failure);
+	}
 	v->a.arr = malloc(sizeof(int) * (v->a.len));
 	if (v->a.arr == NULL)
 		return (Failure);
