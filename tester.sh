@@ -47,7 +47,7 @@ echo -ne "Tests with a stack length of 3 : [${YELLOW}ongoing${RESET}]"
 RESULT="[${GREEN}OK${RESET}]"
 i=0
 while [ $i -lt 5 ]; do
-	if [ "$(ARG="$(./rand_nb_gen.sh 4)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" ]; then
+	if [ "$(ARG="$(./rand_nb_gen.sh 3)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" ]; then
 		RESULT="[${RED}KO${RESET}]"
 	fi
 	i=$[$i+1]
@@ -175,6 +175,50 @@ while [ $i -lt 5 ]; do
 done
 echo -e "${ERASE_ONGOING}${RESULT}"
 
+echo -ne "Tests with a stack length of 73 : [${YELLOW}ongoing${RESET}]"
+RESULT="[${GREEN}OK${RESET}]"
+i=0
+while [ $i -lt 5 ]; do
+	if [ "$(ARG="$(./rand_nb_gen.sh 73)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" > /dev/null ]; then
+		RESULT="[${RED}KO${RESET}]"
+	fi
+	i=$[$i+1]
+done
+echo -e "${ERASE_ONGOING}${RESULT}"
+
+echo -ne "Tests with a stack length of 74 : [${YELLOW}ongoing${RESET}]"
+RESULT="[${GREEN}OK${RESET}]"
+i=0
+while [ $i -lt 5 ]; do
+	if [ "$(ARG="$(./rand_nb_gen.sh 74)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" > /dev/null ]; then
+		RESULT="[${RED}KO${RESET}]"
+	fi
+	i=$[$i+1]
+done
+echo -e "${ERASE_ONGOING}${RESULT}"
+
+echo -ne "Tests with a stack length of 75 : [${YELLOW}ongoing${RESET}]"
+RESULT="[${GREEN}OK${RESET}]"
+i=0
+while [ $i -lt 5 ]; do
+	if [ "$(ARG="$(./rand_nb_gen.sh 75)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" > /dev/null ]; then
+		RESULT="[${RED}KO${RESET}]"
+	fi
+	i=$[$i+1]
+done
+echo -e "${ERASE_ONGOING}${RESULT}"
+
+echo -ne "Tests with a stack length of 76 : [${YELLOW}ongoing${RESET}]"
+RESULT="[${GREEN}OK${RESET}]"
+i=0
+while [ $i -lt 5 ]; do
+	if [ "$(ARG="$(./rand_nb_gen.sh 76)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" > /dev/null ]; then
+		RESULT="[${RED}KO${RESET}]"
+	fi
+	i=$[$i+1]
+done
+echo -e "${ERASE_ONGOING}${RESULT}"
+
 echo -ne "Tests with a stack length of 100 : [${YELLOW}ongoing${RESET}]"
 RESULT="[${GREEN}OK${RESET}]"
 i=0
@@ -191,6 +235,50 @@ RESULT="[${GREEN}OK${RESET}]"
 i=0
 while [ $i -lt 5 ]; do
 	if [ "$(ARG="$(./rand_nb_gen.sh 250)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" > /dev/null ]; then
+		RESULT="[${RED}KO${RESET}]"
+	fi
+	i=$[$i+1]
+done
+echo -e "${ERASE_ONGOING}${RESULT}"
+
+echo -ne "Tests with a stack length of 332 : [${YELLOW}ongoing${RESET}]"
+RESULT="[${GREEN}OK${RESET}]"
+i=0
+while [ $i -lt 5 ]; do
+	if [ "$(ARG="$(./rand_nb_gen.sh 332)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" > /dev/null ]; then
+		RESULT="[${RED}KO${RESET}]"
+	fi
+	i=$[$i+1]
+done
+echo -e "${ERASE_ONGOING}${RESULT}"
+
+echo -ne "Tests with a stack length of 333 : [${YELLOW}ongoing${RESET}]"
+RESULT="[${GREEN}OK${RESET}]"
+i=0
+while [ $i -lt 5 ]; do
+	if [ "$(ARG="$(./rand_nb_gen.sh 333)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" > /dev/null ]; then
+		RESULT="[${RED}KO${RESET}]"
+	fi
+	i=$[$i+1]
+done
+echo -e "${ERASE_ONGOING}${RESULT}"
+
+echo -ne "Tests with a stack length of 334 : [${YELLOW}ongoing${RESET}]"
+RESULT="[${GREEN}OK${RESET}]"
+i=0
+while [ $i -lt 5 ]; do
+	if [ "$(ARG="$(./rand_nb_gen.sh 334)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" > /dev/null ]; then
+		RESULT="[${RED}KO${RESET}]"
+	fi
+	i=$[$i+1]
+done
+echo -e "${ERASE_ONGOING}${RESULT}"
+
+echo -ne "Tests with a stack length of 335 : [${YELLOW}ongoing${RESET}]"
+RESULT="[${GREEN}OK${RESET}]"
+i=0
+while [ $i -lt 5 ]; do
+	if [ "$(ARG="$(./rand_nb_gen.sh 335)"; ./push_swap $ARG 2>&1 | ./checker $ARG 2>&1)" != "OK" > /dev/null ]; then
 		RESULT="[${RED}KO${RESET}]"
 	fi
 	i=$[$i+1]
