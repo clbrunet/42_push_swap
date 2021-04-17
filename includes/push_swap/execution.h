@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 06:39:49 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/12 19:07:32 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/16 21:15:56 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,16 @@ void			push_to_dst(t_stack *dst, char dst_name, t_stack *buf,
 					t_bool should_put);
 unsigned int	stack_rotate_sort(t_stack *dst, char dst_name,
 					t_stack *buf, t_bool should_put);
-unsigned int	merge_sort(t_vars *v, t_bool should_put);
+
+unsigned int	one_split_sort(t_vars *v, t_bool should_put);
+
+unsigned int	push_to_b(t_vars *v, t_bool should_put);
+unsigned int	push_to_a(t_vars *v, t_bool should_put);
+unsigned int	reverse_rotate_push_to_a(t_vars *v, t_bool should_put);
+unsigned int	reverse_rotate_stack(t_stack *stack, char stack_name,
+					t_bool should_put);
+unsigned int	two_split_sort(t_vars *v, t_bool should_put);
+
 unsigned int	perfect_sort(t_vars *v);
 
 unsigned int	sort_stacks(t_vars *v);

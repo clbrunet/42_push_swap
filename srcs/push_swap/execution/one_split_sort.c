@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   merge_sort.c                                       :+:      :+:    :+:   */
+/*   one_split_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 07:47:43 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/13 10:09:24 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/17 06:21:41 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "execution.h"
-
-static unsigned int	push_to_b(t_vars *v, t_bool should_put)
-{
-	unsigned int	count;
-
-	count = v->a.len;
-	while (v->a.len)
-	{
-		push(&v->b, &v->a);
-		if (should_put == True)
-			dputs(1, "pb\n");
-	}
-	return (count);
-}
 
 static unsigned int	rotate_stack(t_vars *v, t_bool should_put)
 {
@@ -67,7 +53,7 @@ static unsigned int	merge_stacks(t_vars *v, t_bool should_put)
 	return (count);
 }
 
-unsigned int		merge_sort(t_vars *v, t_bool should_put)
+unsigned int		one_split_sort(t_vars *v, t_bool should_put)
 {
 	unsigned int	count;
 	unsigned int	len_backup;
@@ -77,13 +63,13 @@ unsigned int		merge_sort(t_vars *v, t_bool should_put)
 	v->a.len /= 2;
 	v->a.arr += len_backup - v->a.len;
 	count += push_to_b(v, should_put);
-	count += stack_rotate_sort(&v->b, 'b', &v->a, True);
+	count += stack_rotate_sort(&v->b, 'b', &v->a, should_put);
 	v->a.len = len_backup - v->b.len;
 	v->a.arr -= v->a.len;
 	v->b.arr += v->b.len;
 	len_backup = v->b.len;
 	v->b.len = 0;
-	count += stack_rotate_sort(&v->a, 'a', &v->b, True);
+	count += stack_rotate_sort(&v->a, 'a', &v->b, should_put);
 	v->b.len = len_backup;
 	v->b.arr -= len_backup;
 	count += merge_stacks(v, should_put);

@@ -24,7 +24,9 @@ $(OBJS_CHECKER): EXTRA_CFLAGS_I := -I./includes/checker/
 SRCS_PUSH_SWAP = srcs/push_swap/execution/stack_rotate_sort_utils.c	\
 				 srcs/push_swap/execution/stack_rotate_sort_utils2.c\
 				 srcs/push_swap/execution/stack_rotate_sort.c		\
-				 srcs/push_swap/execution/merge_sort.c				\
+				 srcs/push_swap/execution/one_split_sort.c			\
+				 srcs/push_swap/execution/two_split_sort_utils.c	\
+				 srcs/push_swap/execution/two_split_sort.c			\
 				 srcs/push_swap/execution/perfect_sort_utils.c		\
 				 srcs/push_swap/execution/perfect_sort.c			\
 				 srcs/push_swap/execution/sort_stacks.c				\
