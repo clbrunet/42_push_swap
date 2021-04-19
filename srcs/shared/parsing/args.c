@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:27:58 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/13 10:12:11 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/19 06:57:52 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ static unsigned int	get_stack_len(const char *const *args)
 			arg++;
 		while (ft_isdigit(*arg))
 		{
-			if (*arg == '-' || *arg == '+')
-				arg++;
 			while (ft_isdigit(*arg))
 				arg++;
 			count++;
 			while (ft_isspace(*arg))
+				arg++;
+			if (*arg == '-' || *arg == '+')
 				arg++;
 		}
 		args++;
@@ -62,7 +62,8 @@ static t_status		parse_integer(const char **arg, int *a_arr)
 	while (ft_isspace(**arg))
 		(*arg)++;
 	longv *= sign;
-	if ((**arg && !ft_isdigit(**arg)) || longv < INT_MIN || INT_MAX < longv)
+	if ((**arg && !ft_isdigit(**arg) && **arg != '-' && **arg != '+')
+		|| longv < INT_MIN || INT_MAX < longv)
 		return (Failure);
 	*a_arr = longv;
 	return (Success);
