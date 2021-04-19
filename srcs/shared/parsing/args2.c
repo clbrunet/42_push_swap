@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shared_parsing.h                                   :+:      :+:    :+:   */
+/*   args2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 18:41:42 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/19 07:12:20 by clbrunet         ###   ########.fr       */
+/*   Created: 2021/04/19 07:09:41 by clbrunet          #+#    #+#             */
+/*   Updated: 2021/04/19 07:15:02 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHARED_PARSING_H
-# define SHARED_PARSING_H
+#include "shared_parsing.h"
 
-# include <stdlib.h>
-# include <limits.h>
+long int	get_longv(const char **arg, char sign)
+{
+	long int	longv;
 
-# include "shared_vars.h"
-# include "shared_display.h"
-# include "shared_dput.h"
-# include "shared_ft.h"
-
-long int	get_longv(const char **arg, char sign);
-t_status	parse_args(const char *const *args, t_vars *v);
-
-#endif
+	longv = 0;
+	while (ft_isdigit(**arg))
+	{
+		longv = longv * 10 + **arg - '0';
+		(*arg)++;
+	}
+	return (longv * sign);
+}

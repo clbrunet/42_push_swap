@@ -6,7 +6,7 @@
 /*   By: clbrunet <clbrunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:27:58 by clbrunet          #+#    #+#             */
-/*   Updated: 2021/04/19 06:57:52 by clbrunet         ###   ########.fr       */
+/*   Updated: 2021/04/19 07:10:45 by clbrunet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,11 @@ static t_status		parse_integer(const char **arg, int *a_arr)
 	}
 	else if (**arg == '+')
 		(*arg)++;
-	longv = 0;
-	while (ft_isdigit(**arg))
-	{
-		longv = longv * 10 + **arg - '0';
-		(*arg)++;
-	}
+	if (!ft_isdigit(**arg))
+		return (Failure);
+	longv = get_longv(arg, sign);
 	while (ft_isspace(**arg))
 		(*arg)++;
-	longv *= sign;
 	if ((**arg && !ft_isdigit(**arg) && **arg != '-' && **arg != '+')
 		|| longv < INT_MIN || INT_MAX < longv)
 		return (Failure);
